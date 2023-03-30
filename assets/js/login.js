@@ -51,7 +51,8 @@ $(function () {
             success:function(res){
                 if(res.status!==0){ return lr.msg('登录失败')}
                 lr.msg('登录成功')
-                location.href='/login.html'
+                localStorage.setItem('token', res.token)
+                location.href='/index.html'
                 console.log(res)
                            }
         })
