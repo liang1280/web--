@@ -29,17 +29,19 @@ $(function () {
     //     username: $('.reg-box [name=username]').val(),
     //     password: $('.reg-box [name=password]').val()}
     var data = {
-        username: $('#form_reg [name=username]').val(),
-        password: $('#form_reg [name=password]').val()
+        username:$('#liang').val(),
+        password:$('#wen').val()
       }
+      console.log(data)
+      console.log(e)
         $.post('/api/reguser',data, function (res) {
                 if (res.status!== 0) {
                     // lr.msg('注册失败')
                     return console.log(res.message+'注册失败')
                 }
                 console.log('注册成功')
-                // lr.msg('注册成功请登录')
-                // $('#link-login').click()
+                lr.msg('注册成功请登录')
+                $('#link-login').click()
             })
     })
     $('#form-login').submit(function(e){
@@ -53,7 +55,7 @@ $(function () {
                 lr.msg('登录成功')
                 localStorage.setItem('token', res.token)
                 location.href='/index.html'
-                console.log(res)
+                // console.log(res)
                            }
         })
     })
